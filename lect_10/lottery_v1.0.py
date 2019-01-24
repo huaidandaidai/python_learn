@@ -6,6 +6,7 @@
 """
 import requests
 from bs4 import BeautifulSoup
+import csv
 
 
 def get_batch_number():
@@ -25,19 +26,31 @@ def get_batch_number():
     return batch_number_list
 
 
+def get_lottery(batch_number):
+    r = requests.get(batch_number[1], timeout=30)
+    soup = BeautifulSoup(r.text, 'lxml')
+    number_div = soup.find_all('div', {'class': 'ball_box01'})[0]
+    red_ball_li = number_div.find_all('li', {'class': 'ball_red'})
+    blue_ball = number_div.find_all('li', {'class': 'ball_blue'})[0].text
+    red_ball_list = []
+    for red_ball in red_ball_li:
+        red_ball_list.append(red_ball.text)
+    row = [batch_number[0]] + red_ball_list + [blue_ball]
+    return row
+
+
 def get_double_chromosphere(batch_number_list):
-
-    for batch_number in batch_number_list:
-        r = requests.get(batch_number[1], timeout=30)
-        soup = BeautifulSoup(r.text, 'lxml')
-        number_div = soup.find_all('div', {'class': 'ball_box01'})[0]
-        red_ball_li = number_div.find_all('li', {'class': 'ball_red'})
-        blue_ball = number_div.find_all('li', {'class': 'ball_blue'})[0].text
-        red_ball_list = []
-        for red_ball in red_ball_li:
-            red_ball_list.append(red_ball.text)
-
-        print("期数：",batch_number[0],"红球：",red_ball_list, "蓝球：", blue_ball)
+    header = ['期数', '红球1', '红球2', '红球3', '红球4', '红球5', '红球6', '蓝球']
+    with open('lottery.csv', 'w', encoding='utf-8', newline='') as f:
+        print("-----------打开文件---------------")
+        writer = csv.writer(f)
+        writer.writerow(header)
+        print("-----------写入头---------------")
+        for i, batch_number in enumerate(batch_number_list):
+            if (i + 1) % 10 == 0:
+                print('已处理{}记录。(共{}条记录)'.format(i + 1, len(batch_number_list)))
+            row = get_lottery(batch_number)
+            writer.writerow(row)
 
 
 def main():
