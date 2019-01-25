@@ -1,0 +1,6 @@
+Hello	Python
+Hello	world
+hi	nihao
+haha	123
+jasdas	123
+asdf	123
