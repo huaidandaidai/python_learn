@@ -20,3 +20,8 @@ Python学习笔记
 ## lect_09 小象全球购
 
 ## lect_10 双色球爬虫
+
+## lect_11 mapreduce_streaming
+    windows下 cmd 进入到代码所在目录
+    输入以下命令执行代码，来模拟map_reduce方法
+    `type words.txt | python map.py | sort | python reduce.py`
