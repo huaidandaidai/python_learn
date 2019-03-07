@@ -14,7 +14,11 @@ def get_batch_number():
         获取期数
     """
     url = "http://kaijiang.500.com/shtml/ssq/19009.shtml"
-    r = requests.get(url, timeout=30)
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,"
+                      " like Gecko) Chrome/68.0.3440.106 Safari/537.36"
+    }
+    r = requests.get(url, timeout=30, headers=headers)
     soup = BeautifulSoup(r.text, 'lxml')
     number_div = soup.find_all('div',{'class': 'iSelectList'})[0]
     number_links = number_div.find_all("a")
