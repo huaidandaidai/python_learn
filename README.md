@@ -31,3 +31,5 @@ Python学习笔记
     windows下 cmd 进入到代码所在目录
     输入以下命令执行代码，来模拟map_reduce方法
     `type words.txt | python map.py | sort | python reduce.py`
+
+## lect_12 爬虫
