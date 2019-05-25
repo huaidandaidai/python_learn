@@ -33,3 +33,6 @@ Python学习笔记
     `type words.txt | python map.py | sort | python reduce.py`
 
 ## lect_12 爬虫
+
+## lect_13 微信自动发消息
+    copy 自 https://github.com/shengqiangzhang/examples-of-web-crawlers 
