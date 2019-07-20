@@ -36,3 +36,5 @@ Python学习笔记
 
 ## lect_13 微信自动发消息
     copy 自 https://github.com/shengqiangzhang/examples-of-web-crawlers 
+
+## lect_14 自动刷新访问量
