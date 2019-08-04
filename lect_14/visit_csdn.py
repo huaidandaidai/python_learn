@@ -47,11 +47,12 @@ def PV():
         IPs = parseIPList()
         s.proxies = {"http": "{}:8080".format(IPs[random.randint(0, 40)])}
         s.get(host)
-        r = s.get(url.format(codes[random.randint(0, 27)]))
-        html = r.text
-        soup = BeautifulSoup(html, "html.parser")
-        spans = soup.find_all("span")
-        print(spans[2].string)
+        for code in codes:
+            r = s.get(url.format(code))
+            html = r.text
+            soup = BeautifulSoup(html, "html.parser")
+            spans = soup.find_all("span")
+            print(spans[2].string)
         time.sleep(random.randint(60, 120))
 
 
