@@ -52,7 +52,7 @@ def PV():
             html = r.text
             soup = BeautifulSoup(html, "html.parser")
             spans = soup.find_all("span")
-            print(spans[2].string)
+            print(spans[2].string, end="\t")
         time.sleep(random.randint(60, 120))
 
 
