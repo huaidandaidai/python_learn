@@ -38,3 +38,6 @@ Python学习笔记
     copy 自 https://github.com/shengqiangzhang/examples-of-web-crawlers 
 
 ## lect_14 自动刷新访问量
+
+## AI 预测用户的体重
+data_view.py 用来可视化身高和体重的数据
