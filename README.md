@@ -41,3 +41,4 @@ Python学习笔记
 
 ## AI 预测用户的体重
 data_view.py 用来可视化身高和体重的数据
+## AI  KNN 算法初识
