@@ -39,6 +39,8 @@ Python学习笔记
 
 ## lect_14 自动刷新访问量
 
-## AI 预测用户的体重
+## lect_15 AI 预测用户的体重
 data_view.py 用来可视化身高和体重的数据
-## AI  KNN 算法初识
+## lect_16 AI  KNN 算法初识
+
+## lect_17 根据数据库自动生成数据库文档
